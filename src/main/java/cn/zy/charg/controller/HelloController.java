@@ -1,5 +1,4 @@
 package cn.zy.charg.controller;
-import cn.zy.charg.bean.Pile;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
