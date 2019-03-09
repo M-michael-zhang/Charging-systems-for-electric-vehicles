@@ -7,14 +7,10 @@ spring:
     name: pile
     username: root
     password: root
-    url: jdbc:mysql://123.207.233.171:3306/charg
+    url: jdbc:mysql://123.207.233.171:3306/charg?userSSL=true&serverTimezone=UTC
     driver-class-name: com.mysql.cj.jdbc.Driver
-  servlet:
-      multipart:
-      max-file-size: 500Mb
-      max-request-size: 500Mb
 mybatis:
-  mapper-locations: classpath:mapping/*.xml
+  mapper-locations: classpath:mapper/*.xml
   type-aliases-package: cn.zy.charg.bean
 
 #showSql
@@ -22,4 +18,4 @@ logging:
   level:
     com:
       example:
-        mapper : debug
+        mapper: debug

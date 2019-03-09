@@ -9,9 +9,9 @@ import org.springframework.context.annotation.PropertySource;
 
 import static org.springframework.boot.SpringApplication.*;
 
-@SpringBootApplication(exclude = DataSourceAutoConfiguration.class)
-@PropertySource("classpath:application.yml")
-@MapperScan(basePackages="cn.zy.charg.dao.*")
+@SpringBootApplication
+//@PropertySource("classpath:application.yml")
+@MapperScan(basePackages="cn.zy.charg.dao")
 public class ChargApplication {
 
 	public static void main(String[] args) {
