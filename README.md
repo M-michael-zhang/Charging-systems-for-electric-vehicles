@@ -1,3 +1,9 @@
 # Uav-charging-pile-system
 无人机充电桩
-    利用spring boot开发项目
+    技术栈：SpringBoot+Hibernate
+            Pagehelper 
+            Aliyun Java SDK 
+            Emqx
+            Javax.websocket
+            Paho.mqtt
+
