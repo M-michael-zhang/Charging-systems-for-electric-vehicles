@@ -1,21 +1,61 @@
 
 server:
-  port: 8080
+  port: 8088
 
 spring:
   datasource:
-    name: pile
-    username: root
-    password: root
-    url: jdbc:mysql://123.207.233.171:3306/charg?userSSL=true&serverTimezone=UTC
+    name: charge
+    username: XXXXX
+    password: XXXXXXXXX
+    url: jdbc:mysql://XXXXXXXX:3306/charge?userSSL=true&serverTimezone=GMT%2B8&characterEncoding=UTF-8
     driver-class-name: com.mysql.cj.jdbc.Driver
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  thymeleaf:
+    cache: false
+
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
+  returnPageInfo: check
+#mybatis:
+#  typeAliasesPackage: cn.zy.charg.bean
+#  mapperLocations: classpath:mapper/*.xml
+#showSql
 mybatis:
   mapper-locations: classpath:mapper/*.xml
   type-aliases-package: cn.zy.charg.bean
-
-#showSql
 logging:
   level:
-    com:
-      example:
-        mapper: debug
+    cn.zy.charg.dao: debug
+  file: Charge.log
+
+
+#MQTT
+mqtt:
+  username: admin
+  #MQTT-密码
+  password: public
+  #MQTT-服务器连接地址，如果有多个，用逗号隔开，如：tcp://127.0.0.1:61613，tcp://192.168.2.133:61613
+  url: tcp://39.97.99.126:1883
+  #MQTT-连接服务器默认客户端ID
+  client.id: mqttId
+  #MQTT-默认的消息推送主题，实际可在调用接口时指定
+  default.topic: topic1
+  #连接超时
+  completionTimeout: 3000
+  producer:
+    clientId: mqttProducer
+  # 默认的推送主题，实际可在调用接口时指定
+    defaultTopic: topic1
+  ##################
+  #  MQTT 消费者
+  ##################
+  consumer:
+    clientId: mqttConsumer
+  # 默认的接收主题，可以订阅多个Topic，逗号分隔
+    defaultTopic: topic1
+

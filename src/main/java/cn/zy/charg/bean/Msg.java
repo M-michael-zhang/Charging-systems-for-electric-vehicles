@@ -33,6 +33,11 @@ public class Msg {
         return this;
     }
 
+    public Msg setNewMsg(String info){
+        this.msg = info;
+        return this;
+    }
+
     public int getCode() {
         return code;
     }

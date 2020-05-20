@@ -19,4 +19,6 @@ public interface PileMapper {
     int updateByExampleSelective(@Param("record") Pile record, @Param("example") PileExample example);
 
     int updateByExample(@Param("record") Pile record, @Param("example") PileExample example);
+
+    List<Pile> selectPileByAddress(@Param("address") String address);
 }

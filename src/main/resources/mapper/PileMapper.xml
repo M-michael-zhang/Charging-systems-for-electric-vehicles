@@ -2,10 +2,21 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.zy.charg.dao.PileMapper">
   <resultMap id="BaseResultMap" type="cn.zy.charg.bean.Pile">
+    <result column="cid" jdbcType="INTEGER" property="cid" />
     <result column="id" jdbcType="INTEGER" property="id" />
-    <result column="locationX" jdbcType="DOUBLE" property="locationx" />
-    <result column="locationY" jdbcType="DOUBLE" property="locationy" />
-    <result column="state" jdbcType="INTEGER" property="state" />
+    <result column="type" jdbcType="VARCHAR" property="type" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="location_x" jdbcType="DOUBLE" property="locationX" />
+    <result column="location_y" jdbcType="DOUBLE" property="locationY" />
+    <result column="voltage" jdbcType="DOUBLE" property="voltage" />
+    <result column="electricity" jdbcType="DOUBLE" property="electricity" />
+    <result column="status" jdbcType="VARCHAR" property="status" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="qrcode" jdbcType="VARCHAR" property="qrcode" />
+    <result column="qrcode_path" jdbcType="VARCHAR" property="qrcodePath" />
+    <result column="rate" jdbcType="DOUBLE" property="rate" />
+    <result column="reserve1" jdbcType="VARCHAR" property="reserve1" />
+    <result column="reserve2" jdbcType="VARCHAR" property="reserve2" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -66,7 +77,8 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, locationX, locationY, state
+    cid, id, type, address, location_x, location_y, voltage, electricity, status, create_time, 
+    qrcode, qrcode_path, rate, reserve1, reserve2
   </sql>
   <select id="selectByExample" parameterType="cn.zy.charg.bean.PileExample" resultMap="BaseResultMap">
     select
@@ -89,39 +101,113 @@
     </if>
   </delete>
   <insert id="insert" parameterType="cn.zy.charg.bean.Pile">
-    insert into pile (id, locationX, locationY, 
-      state)
-    values (#{id,jdbcType=INTEGER}, #{locationx,jdbcType=DOUBLE}, #{locationy,jdbcType=DOUBLE}, 
-      #{state,jdbcType=INTEGER})
+    insert into pile (cid, id, type, 
+      address, location_x, location_y, 
+      voltage, electricity, status, 
+      create_time, qrcode, qrcode_path, 
+      rate, reserve1, reserve2
+      )
+    values (#{cid,jdbcType=INTEGER}, #{id,jdbcType=INTEGER}, #{type,jdbcType=VARCHAR}, 
+      #{address,jdbcType=VARCHAR}, #{locationX,jdbcType=DOUBLE}, #{locationY,jdbcType=DOUBLE}, 
+      #{voltage,jdbcType=DOUBLE}, #{electricity,jdbcType=DOUBLE}, #{status,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{qrcode,jdbcType=VARCHAR}, #{qrcodePath,jdbcType=VARCHAR}, 
+      #{rate,jdbcType=DOUBLE}, #{reserve1,jdbcType=VARCHAR}, #{reserve2,jdbcType=VARCHAR}
+      )
   </insert>
   <insert id="insertSelective" parameterType="cn.zy.charg.bean.Pile">
     insert into pile
     <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="cid != null">
+        cid,
+      </if>
       <if test="id != null">
         id,
       </if>
-      <if test="locationx != null">
-        locationX,
+      <if test="type != null">
+        type,
       </if>
-      <if test="locationy != null">
-        locationY,
+      <if test="address != null">
+        address,
       </if>
-      <if test="state != null">
-        state,
+      <if test="locationX != null">
+        location_x,
+      </if>
+      <if test="locationY != null">
+        location_y,
+      </if>
+      <if test="voltage != null">
+        voltage,
+      </if>
+      <if test="electricity != null">
+        electricity,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="qrcode != null">
+        qrcode,
+      </if>
+      <if test="qrcodePath != null">
+        qrcode_path,
+      </if>
+      <if test="rate != null">
+        rate,
+      </if>
+      <if test="reserve1 != null">
+        reserve1,
+      </if>
+      <if test="reserve2 != null">
+        reserve2,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="cid != null">
+        #{cid,jdbcType=INTEGER},
+      </if>
       <if test="id != null">
         #{id,jdbcType=INTEGER},
       </if>
-      <if test="locationx != null">
-        #{locationx,jdbcType=DOUBLE},
+      <if test="type != null">
+        #{type,jdbcType=VARCHAR},
       </if>
-      <if test="locationy != null">
-        #{locationy,jdbcType=DOUBLE},
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
       </if>
-      <if test="state != null">
-        #{state,jdbcType=INTEGER},
+      <if test="locationX != null">
+        #{locationX,jdbcType=DOUBLE},
+      </if>
+      <if test="locationY != null">
+        #{locationY,jdbcType=DOUBLE},
+      </if>
+      <if test="voltage != null">
+        #{voltage,jdbcType=DOUBLE},
+      </if>
+      <if test="electricity != null">
+        #{electricity,jdbcType=DOUBLE},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="qrcode != null">
+        #{qrcode,jdbcType=VARCHAR},
+      </if>
+      <if test="qrcodePath != null">
+        #{qrcodePath,jdbcType=VARCHAR},
+      </if>
+      <if test="rate != null">
+        #{rate,jdbcType=DOUBLE},
+      </if>
+      <if test="reserve1 != null">
+        #{reserve1,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve2 != null">
+        #{reserve2,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -134,17 +220,50 @@
   <update id="updateByExampleSelective" parameterType="map">
     update pile
     <set>
+      <if test="record.cid != null">
+        cid = #{record.cid,jdbcType=INTEGER},
+      </if>
       <if test="record.id != null">
         id = #{record.id,jdbcType=INTEGER},
       </if>
-      <if test="record.locationx != null">
-        locationX = #{record.locationx,jdbcType=DOUBLE},
+      <if test="record.type != null">
+        type = #{record.type,jdbcType=VARCHAR},
       </if>
-      <if test="record.locationy != null">
-        locationY = #{record.locationy,jdbcType=DOUBLE},
+      <if test="record.address != null">
+        address = #{record.address,jdbcType=VARCHAR},
       </if>
-      <if test="record.state != null">
-        state = #{record.state,jdbcType=INTEGER},
+      <if test="record.locationX != null">
+        location_x = #{record.locationX,jdbcType=DOUBLE},
+      </if>
+      <if test="record.locationY != null">
+        location_y = #{record.locationY,jdbcType=DOUBLE},
+      </if>
+      <if test="record.voltage != null">
+        voltage = #{record.voltage,jdbcType=DOUBLE},
+      </if>
+      <if test="record.electricity != null">
+        electricity = #{record.electricity,jdbcType=DOUBLE},
+      </if>
+      <if test="record.status != null">
+        status = #{record.status,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createTime != null">
+        create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.qrcode != null">
+        qrcode = #{record.qrcode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.qrcodePath != null">
+        qrcode_path = #{record.qrcodePath,jdbcType=VARCHAR},
+      </if>
+      <if test="record.rate != null">
+        rate = #{record.rate,jdbcType=DOUBLE},
+      </if>
+      <if test="record.reserve1 != null">
+        reserve1 = #{record.reserve1,jdbcType=VARCHAR},
+      </if>
+      <if test="record.reserve2 != null">
+        reserve2 = #{record.reserve2,jdbcType=VARCHAR},
       </if>
     </set>
     <if test="_parameter != null">
@@ -153,12 +272,26 @@
   </update>
   <update id="updateByExample" parameterType="map">
     update pile
-    set id = #{record.id,jdbcType=INTEGER},
-      locationX = #{record.locationx,jdbcType=DOUBLE},
-      locationY = #{record.locationy,jdbcType=DOUBLE},
-      state = #{record.state,jdbcType=INTEGER}
+    set cid = #{record.cid,jdbcType=INTEGER},
+      id = #{record.id,jdbcType=INTEGER},
+      type = #{record.type,jdbcType=VARCHAR},
+      address = #{record.address,jdbcType=VARCHAR},
+      location_x = #{record.locationX,jdbcType=DOUBLE},
+      location_y = #{record.locationY,jdbcType=DOUBLE},
+      voltage = #{record.voltage,jdbcType=DOUBLE},
+      electricity = #{record.electricity,jdbcType=DOUBLE},
+      status = #{record.status,jdbcType=VARCHAR},
+      create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      qrcode = #{record.qrcode,jdbcType=VARCHAR},
+      qrcode_path = #{record.qrcodePath,jdbcType=VARCHAR},
+      rate = #{record.rate,jdbcType=DOUBLE},
+      reserve1 = #{record.reserve1,jdbcType=VARCHAR},
+      reserve2 = #{record.reserve2,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
+  <select id="selectPileByAddress" resultMap="BaseResultMap">
+    select * from pile where address like '${address}%'
+  </select>
 </mapper>
