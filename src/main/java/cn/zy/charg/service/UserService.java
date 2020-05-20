@@ -28,9 +28,9 @@ public class UserService {
     }
 
     public User loginByCaptcha(String number,String captcha){
-//        if(!captcha.equals(captchaService.getCaptchaByPhoneIn5Min(number))){
-//            throw new BusinessException(BusinessErrorCode.USER_LOGINFAIL.setNewMessage("登录失败，验证码已失效"));
-//        }
+        if(!captcha.equals(captchaService.getCaptchaByPhoneIn5Min(number))){
+            throw new BusinessException(BusinessErrorCode.USER_LOGINFAIL.setNewMessage("登录失败，验证码已失效"));
+         }
         List<User> list = getUserByPhone(number);
         User user;
         if(list==null||list.size()==0){
