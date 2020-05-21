@@ -34,3 +34,5 @@
 * 将rpm上传至服务器并安装，使用 ```sudo emqx start``` 命令启动
 * 访问 http://服务器IP:18083  , 用户名admin 密码 public 
 * 设置项目的src/main/resources/application.yml中配置mqtt的url的ip
+# 联系作者
+paypome@163.com
