@@ -1,5 +1,5 @@
 # Charging-systems-for-electric-vehicles
-电动汽车充电系统后台实现  (由于毕设答辩完成，剩下的坑不想填了，代码不够完善请见谅）
+电动汽车充电系统后台实现  (由于毕设答辩完成，剩下的坑不想填了，代码不够完善请见谅）  
 **功能介绍图**
 ![功能设计图](https://raw.githubusercontent.com/M-michael-zhang/Uav-charging-pile-system/master/show/function.png)  
 管理端(web)实现地址: https://github.com/M-michael-zhang/Management-end-of-charging-system  
