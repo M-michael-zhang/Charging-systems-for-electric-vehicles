@@ -29,4 +29,8 @@
 * 若使用短信服务，请在阿里云的短信服务申请AccessKey ID和AccessKey Secret，并申请短信格式，在/util/SmsUtil中配置短信信息
 * 启动/ChargApplication.java即可运行后台
 * 测试 http://localhost:8088/pile/getPiles 是否获取所有充电桩信息
-
+## MQTT代理服务器搭建
+* sqldata中有emqx的windows和centos的安装包，本人只使用过centos，设置过程如下
+* 将rpm上传至服务器并安装，使用 ```sudo emqx start``` 命令启动
+* 访问 http://服务器IP:18083  , 用户名admin 密码 public 
+* 设置项目的src/main/resources/application.yml中配置mqtt的url的ip
