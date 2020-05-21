@@ -1,4 +1,4 @@
-# Uav-charging-pile-system
+# Charging-systems-for-electric-vehicles
 电动汽车充电系统后台实现  
 **功能介绍图**
 ![功能设计图](https://raw.githubusercontent.com/M-michael-zhang/Uav-charging-pile-system/master/show/function.png)  
@@ -24,5 +24,9 @@
 ![远程断电](https://raw.githubusercontent.com/M-michael-zhang/Uav-charging-pile-system/master/show/remotePowerOff.gif)
 
 ## 使用过程
-* 系统使用的MySQL数据库，将sqldata中的sql文件导入至数据库，并在mbg.xml和src/main/resources/application.yml中配置数据库信息，若需要自定义数据库，本系统使用hibernate自动生成代码，请在mgb.xml中的配置数据库信息和数据表，并运行src/main/java/cn/zy/charge/(该路径下文直接省去）test/MGBtest.java，将生成bean和mapper文件。
-src/main/java/cn/zy/charge/(该路径下文直接省去）test/MGBtest.java
+* 将项目导入Idea
+* 系统使用的MySQL数据库，将sqldata中的sql文件导入至数据库，并在src/main/resources/application.yml中配置数据库信息，若需要自定义数据库，本系统使用hibernate自动生成代码，请在mgb.xml中的配置数据库信息和数据表(已有的表请注释），并运行src/main/java/cn/zy/charge/(该路径下文直接省去）test/MGBtest.java，将自动生成相应bean和mapper文件。
+* 若使用短信服务，请在阿里云的短信服务申请AccessKey ID和AccessKey Secret，并申请短信格式，在/util/SmsUtil中配置短信信息
+* 启动/ChargApplication.java即可运行后台
+* 测试 http://localhost:8088/pile/getPiles 是否获取所有充电桩信息
+
