@@ -13,7 +13,7 @@ import com.aliyuncs.profile.DefaultProfile;
 public class SmsUtil {
 
     public static boolean sendLoginSms(String number,String captcha){
-        DefaultProfile profile = DefaultProfile.getProfile("cn-hangzhou", "LTAI4FmS8YQPMcWMtYAnwVwa", "8ie1wELZI1Ai1S8sgQqHzjTUT4zaKq");
+        DefaultProfile profile = DefaultProfile.getProfile("cn-hangzhou", "AccessKey ID", "AccessKey Secret");
         IAcsClient client = new DefaultAcsClient(profile);
 
         CommonRequest request = new CommonRequest();
@@ -23,8 +23,8 @@ public class SmsUtil {
         request.setSysAction("SendSms");
         request.putQueryParameter("RegionId", "cn-hangzhou");
         request.putQueryParameter("PhoneNumbers", number);
-        request.putQueryParameter("SignName", "煦飞充电");
-        request.putQueryParameter("TemplateCode", "SMS_183793398");
+        request.putQueryParameter("SignName", "xxxxxxxx");
+        request.putQueryParameter("TemplateCode", "xxxxxxxxxx");
         request.putQueryParameter("TemplateParam", "{\"code\":\""+captcha+"\"}");
         try {
             CommonResponse response = client.getCommonResponse(request);
