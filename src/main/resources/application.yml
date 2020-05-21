@@ -40,7 +40,7 @@ mqtt:
   #MQTT-密码
   password: public
   #MQTT-服务器连接地址，如果有多个，用逗号隔开，如：tcp://127.0.0.1:61613，tcp://192.168.2.133:61613
-  url: tcp://39.97.99.126:1883
+  url: tcp://xxxxxxx:1883
   #MQTT-连接服务器默认客户端ID
   client.id: mqttId
   #MQTT-默认的消息推送主题，实际可在调用接口时指定
